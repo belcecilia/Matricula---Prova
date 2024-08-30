@@ -1,0 +1,180 @@
+﻿@page
+@model Matricula.Pages.CreateModel
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculdade Exemplo</title>
+    <link rel="stylesheet" href="site.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #e0f7fa, #00796b); /* Degradê de fundo */
+            color: #333;
+
+        }
+        .hero {
+            background: url('https://via.placeholder.com/1920x600?text=Imagem+de+Fundo') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            margin-top: 60px; /* Espaço para a navbar fixa */
+            background-blur: 5px;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 50px;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 22px;
+            margin: 20px 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            font-size: 28px;
+            color: #004d40;
+            border-bottom: 3px solid #004d40;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            flex: 1 1 calc(33% - 20px);
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #004d40;
+        }
+        .card p {
+            font-size: 16px;
+            color: #555;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #004d40;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #003d33;
+        }
+        .footer {
+            background-color: #004d40;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>Faculdade Exemplo</h1>
+        <p>Transformando Futuros com Educação de Qualidade</p>
+    </div>
+
+    <div class="container">
+        <div id="sobre" class="section">
+            <h2>Sobre Nós</h2>
+            <p>Na Faculdade Exemplo, oferecemos educação de ponta com um enfoque prático e teórico. Estamos comprometidos em preparar nossos alunos para serem líderes em suas áreas, com cursos que atendem às mais altas exigências acadêmicas e profissionais.</p>
+        </div>
+
+        <div id="cursos" class="section">
+            <h2>Nossos Cursos</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Engenharia</h3>
+                    <p>Engenharia é a aplicação de conhecimentos científicos para resolver problemas e criar soluções inovadoras.</p>
+                </div>
+                <div class="card">
+                    <h3>Medicina</h3>
+                    <p>Formação completa para profissionais da saúde, com práticas clínicas e pesquisa avançada.</p>
+                </div>
+                <div class="card">
+                    <h3>Direito</h3>
+                    <p>Preparação para o exercício da advocacia e outras áreas do direito, com foco em ética e legislação.</p>
+                </div>
+                <div class="card">
+                    <h3>Administração</h3>
+                    <p>Curso voltado para gestores e empreendedores, com estratégias de negócios e liderança.</p>
+                </div>
+                <div class="card">
+                    <h3>Design</h3>
+                    <p>Curso criativo que prepara designers para o mercado de trabalho com habilidades em design gráfico e digital.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="contato" class="section">
+            <h2>Contato</h2>
+            <form action="/submit-form" method="post">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Faculdade Exemplo - Todos os direitos reservados</p>
+    </div>
+</body>
+</html>
