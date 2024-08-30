@@ -1,0 +1,105 @@
+﻿@page
+@model alunosModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+    <h1>Lista de clientes</h1>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th class="idude">Idade</th>
+            <th>Email</th>
+        </tr>
+        @foreach (var student in Model.Students)
+        {
+            <tr>
+                <td>@student.NomeEstudante</td>
+                <td>@student.Email</td>
+                <td>@student.Telefone</td>
+                <td>@student.CPF</td>
+                <td>@student.DataNas</td>
+                <td>@student.Curso</td>
+                <td>@student.Turno</td>
+
+
+                <td>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@student.CPF" style="display:inline;">
+                        <button type="submit" onclick="return confirm('Tem certeza que deseja deletar este registro?');">
+                            Deletar
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <style>
+        /* Estiliza a tabela */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+            /* Estiliza o cabeçalho da tabela */
+            table th {
+                background-color: #f4f4f4;
+                color: #555;
+                padding: 10px;
+                text-align: left;
+                position:relative;
+            }
+
+            /* Estiliza as células da tabela */
+            table td {
+                border-bottom: 1px solid #ddd;
+                padding: 10px;
+            }
+
+            /* Adiciona uma cor de fundo alternada às linhas */
+            table tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+
+            /* Adiciona um efeito de destaque ao passar o mouse sobre as linhas */
+            table tr:hover {
+                background-color: #f1f1f1;
+            }
+
+        /* Estiliza o botão de deleção */
+        button {
+            background-color: #e74c3c; /* Cor de fundo vermelha */
+            color: white; /* Texto branco */
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+
+        }
+
+            /* Adiciona um efeito ao passar o mouse sobre o botão */
+           button:hover {
+                background-color: #c0392b;
+            }
+
+            .placa{
+                position: relative;
+                width: -100px;
+                z-index: auto;
+            }
+
+            .idude{
+                widht: 100px;
+            }
+
+    </style>
+</body>
+</html>
