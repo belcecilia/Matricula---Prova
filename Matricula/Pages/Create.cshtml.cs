@@ -31,7 +31,6 @@ namespace Matricula.Pages
             }
             catch (DbUpdateException ex)
             {
-                // Captura detalhes adicionais do erro
                 ModelState.AddModelError("", $"Ocorreu um erro ao salvar: {ex.Message}");
                 return Page();
             }

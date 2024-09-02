@@ -2,12 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using MySqlX.XDevAPI;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 public class alunosModel : PageModel
 {
     private readonly ApplicationDbContext _context;
+
     public alunosModel(ApplicationDbContext context)
     {
         _context = context;
@@ -18,8 +19,8 @@ public class alunosModel : PageModel
     public async Task OnGetAsync()
     {
         Students = await _context.Students.ToListAsync();
-
     }
+
     public async Task<IActionResult> OnPostAddAsync(Student newStudent)
     {
         if (!ModelState.IsValid)
@@ -31,9 +32,9 @@ public class alunosModel : PageModel
         return RedirectToPage();
     }
 
-    public async Task<IActionResult> OnPostDeleteAsync(int id)
+    public async Task<IActionResult> OnPostDeleteAsync(string cpf)
     {
-        var student = await _context.Students.FindAsync(id);
+        var student = await _context.Students.FirstOrDefaultAsync(s => s.CPF == cpf);
         if (student != null)
         {
             _context.Students.Remove(student);
@@ -41,6 +42,4 @@ public class alunosModel : PageModel
         }
         return RedirectToPage();
     }
-
-
 }
